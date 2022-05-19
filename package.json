@@ -1,0 +1,28 @@
+{
+  "name": "steamidle",
+  "version": "1.0.0",
+  "description": "idle up to 32 steam games at once",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h3rl/steamidle.git"
+  },
+  "author": "h3rl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/h3rl/steamidle/issues"
+  },
+  "homepage": "https://github.com/h3rl/steamidle#readme",
+  "dependencies": {
+    "path": "^0.12.7",
+    "prompt-sync": "^4.2.0",
+    "steam-user": "^4.22.1"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
