@@ -17,14 +17,30 @@ IF "%NODE_VER%"=="%NULL_VAL%" (
 	echo.
 	echo.
 	echo After you have installed Node.js, press a key to shut down this process. Please restart it again afterwards.
-) ELSE (
-	echo Node.js ^(%NODE_VER%^) is installed. Proceeding...
-	IF NOT EXIST "node_modules\" (
-		call npm install
-	)
-	title Steamidler by h3rl
-	cls
-	call node index.js
+	pause
+	exit
 )
-PAUSE
-EXIT
+
+echo Node.js ^(%NODE_VER%^) is installed. Proceeding...
+IF NOT EXIST "node_modules\" (
+	call npm install
+)
+
+rem check if config.json is ok
+>nul findstr /c:"someuser" config.json && (
+   goto editfields
+)
+>nul findstr /c:"somepass" config.json && (
+   goto editfields
+)
+
+title Steamidler by h3rl
+cls
+call node index.js
+pause
+exit
+
+:editfields
+echo You need to edit fields in config.json
+pause
+exit
