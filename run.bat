@@ -1,5 +1,4 @@
 @echo off
-cls
 set NULL_VAL=null
 set NODE_VER=%NULL_VAL%
 set NODE_EXEC=node-v16.15.0-x86.msi
@@ -35,7 +34,8 @@ rem check if config.json is ok
 )
 
 title Steamidler by h3rl
-cls
+echo.
+echo Steamidler is starting...
 call node index.js
 pause
 exit
