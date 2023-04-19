@@ -14,6 +14,8 @@ It's megasimple
 2. edit config.json and fill username, password. If you want to idle more games just add the game id of your game to the list (config.json). Game ids can be found [here](https://steamdb.info/).
 3. doubleclick run.bat and you will get guided trough how to install required software, unless already installed.
 
+If you are on linux use run.sh instead.
+
 note: Setup installs node, and runs 'npm install' for getting needed dependencies.
 
 ## Note
