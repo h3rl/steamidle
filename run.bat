@@ -1,7 +1,7 @@
 @echo off
 set NULL_VAL=null
 set NODE_VER=%NULL_VAL%
-set NODE_EXEC=node-v16.15.0-x86.msi
+set NODE_EXEC=https://nodejs.org/dist/v18.16.0/node-v18.16.0-x64.msi
 
 node -v >.tmp_nodever
 set /p NODE_VER=<.tmp_nodever
@@ -12,7 +12,7 @@ IF "%NODE_VER%"=="%NULL_VAL%" (
 	echo.
 	echo Node.js is not installed! Please press a key to download and install it from the website that will open.
 	PAUSE
-	start "" http://nodejs.org/dist/v16.15.0/%NODE_EXEC%
+	start "" %NODE_EXEC%
 	echo.
 	echo.
 	echo After you have installed Node.js, press a key to shut down this process. Please restart it again afterwards.
