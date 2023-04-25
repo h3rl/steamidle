@@ -11,6 +11,7 @@ var client = new SteamClient({
 	username: config.username,
 	password: config.password,
 	games: config.games,
+	silent: config.showasoffline,
 });
 
 client.on('steamguard', () => {

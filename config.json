@@ -1,5 +1,6 @@
 {
 	"username":"someuser",
 	"password":"somepass",
-	"games":[578080,730]
+	"games":[578080,730],
+	"showasoffline":true
 }
