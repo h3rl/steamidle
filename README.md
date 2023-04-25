@@ -16,4 +16,6 @@ If you are on Linux, use `run.sh` instead.
 
 ## Note
 * Setup installs Node.js and runs `npm install` to get the necessary dependencies.
-* If you bought this, you got scammed. This script is MIT licensed.
+* If you bought this, you got scammed.
+
+This project is MIT licensed.
