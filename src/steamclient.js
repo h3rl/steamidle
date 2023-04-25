@@ -137,6 +137,8 @@ class SteamClient extends EventEmitter {
 			return;
 		}
 
+		this.emit('message', 'Logging in');
+
 		this.client.logOn({
 			accountName: this.username,
 			password: this.password,
