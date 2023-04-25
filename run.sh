@@ -1,49 +1,41 @@
 #!/bin/bash
 
-NULL_VAL=null
-NODE_VER=$NULL_VAL
-NODE_EXEC=node-v16.15.0-x86.msi
-
-node -v > .tmp_nodever
-read NODE_VER < .tmp_nodever
-rm .tmp_nodever
-
-if [ "$NODE_VER" = "$NULL_VAL" ]; then
-	clear
-	echo ""
-	echo "Node.js is not installed! Please press a key to download and install it from the website that will open."
-	read -n1 -s
-	xdg-open "http://nodejs.org/dist/v16.15.0/$NODE_EXEC"
-	echo ""
-	echo ""
-	echo "After you have installed Node.js, press a key to shut down this process. Please restart it again afterwards."
-	read -n1 -s
-	exit
+# check node installation
+if ! which node > /dev/null || ! which npm > /dev/null; then
+	echo "Node.js is not installed"
+	echo "please install node first, exiting..."
+	exit 1
 fi
 
-echo "Node.js ($NODE_VER) is installed. Proceeding..."
-if [ ! -d "node_modules" ]; then
-	npm install
+# check node_modules exists
+if [ -d "./node_modules" ]
+then
+    echo "found 'node_modules' directory, assuming packages are installed!"
+else
+    echo "Running 'npm install'..."
+    npm install
 fi
 
 # check if config.json is ok
-grep -q "someuser" config.json
-if [ $? -eq 0 ]; then
-	goto editfields
+CONFIG_OK=1;
+
+if grep "someuser" config.json > /dev/null; then
+    echo "username not set"
+    CONFIG_OK=0;
 fi
 
-grep -q "somepass" config.json
-if [ $? -eq 0 ]; then
-	goto editfields
+if grep "somepass" config.json > /dev/null; then
+    echo "password not set"
+    CONFIG_OK=0;
 fi
 
+if [ $CONFIG_OK -eq 0 ]; then
+    echo "You need to edit fields in config.json"
+    exit 1
+fi
+
+
+# start Steamidler
 echo ""
 echo "Steamidler is starting..."
 node index.js
-read -n1 -s
-exit
-
-editfields:
-echo "You need to edit fields in config.json"
-read -n1 -s
-exit
