@@ -1,25 +1,19 @@
-# steamidle
+# Steam Idle
 
-This script is created for idling hours in up to 32 steamgames. Steam does not ban you for this, its safe.
-<hr>
+This script is designed to idle hours in up to 32 Steam games. It is safe to use, as Steam does not ban users for idling.
 
 ## Features
 
-* Autorestart - idling will stop automaticaly if you start playing a game urselves. And when you are done and exit your game, idling will continue.
+* Autorestart - idling will stop automatically if you start playing a game yourself. When you exit your game, idling will continue.
 
 ## Setup Guide
 
-It's megasimple
-1. Download repo and unzip
-2. edit config.json and fill username, password. If you want to idle more games just add the game id of your game to the list (config.json). Game ids can be found [here](https://steamdb.info/).
-3. doubleclick run.bat and you will get guided trough how to install required software, unless already installed.
+1. Download the repository and unzip it.
+2. Edit `config.json` and fill in your username and password. To idle more games, add the game ID to the list in `config.json`. You can find game IDs [here](https://steamdb.info/).
+3. Run `run.bat`. You will be guided through the installation process of required software, unless already installed.
 
-If you are on linux use run.sh instead.
-
-note: Setup installs node, and runs 'npm install' for getting needed dependencies.
+If you are on Linux, use `run.sh` instead.
 
 ## Note
-
-if you bought this you got scammed lol
-
-MIT licensed
+* Setup installs Node.js and runs `npm install` to get the necessary dependencies.
+* If you bought this, you got scammed. This script is MIT licensed.
