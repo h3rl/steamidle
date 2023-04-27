@@ -47,20 +47,16 @@ class SteamClient extends EventEmitter {
 		this.client.on('loggedOn', (details, parental) => {
 			this.logged_in = true;
 			
-			try {
-				this.client.getPersonas([this.client.steamID], (err, steamid) => {
-					if (err) this.emit('message', err);
-					else {
-						this.emit(
-							'message',
-							'Logged in as ' +
-								steamid[this.client.steamID].player_name
-						);
-					}
-				});
-			} catch (err) {
-				// dont care
-			}
+			this.client.getPersonas([this.client.steamID], (err, steamid) => {
+				if (err) this.emit('message', err);
+				else {
+					this.emit(
+						'message',
+						'Logged in as ' +
+							steamid[this.client.steamID].player_name
+					);
+				}
+			});
 		});
 
 		this.client.on(
